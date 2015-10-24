@@ -15,6 +15,7 @@ var io = require('socket.io')(server);
 
 io.on('connection', function(client) {
   console.log('Client connected...');
+  client.emit('messages', { hello: 'world' });
 });
 
 app.get('/', function(req, res) {
