@@ -18,12 +18,6 @@ io.on('connection', function(client) {
   client.emit('messages', { hello: 'world' });
 });
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
-server.listen(8080);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -70,5 +64,11 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
+server.listen(8080);
+
+//
 module.exports = app;
